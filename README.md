@@ -5,7 +5,7 @@
 [![Dependencies][deps-badge]][deps-link]
 [![Made with Manim][manim-badge]][manim-link]
 
-This repository presents a curated collection of computational projects that bridge the gap between abstract mathematics and tangible, dynamic visuals. The work herein demonstrates the implementation of advanced numerical methods to solve and visualize complex physical phenomena described by partial differential equations. The capstone of this exploration is a cinematic animation of morphing Turing patterns, rendered with the Manim engine, which connects the emergent complexity of a reaction-diffusion system directly to its governing mathematical parameters.
+This repository presents a curated collection of computational projects that bridge the gap between abstract mathematics and tangible, dynamic visuals. The work herein demonstrates the implementation of advanced numerical methods to solve and visualize complex physical phenomena described by partial differential equations.
 
 ![Reaction-Diffusion Animation](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDEzYWo2M2h2eDl0aGlxeng2ejNmOWU4NGNqM3l6cm9teXg2c281byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KRONxvcKhaGjSjpDT1/giphy.gif)
 
@@ -25,7 +25,11 @@ This repository presents a curated collection of computational projects that bri
 ### **I. Comparative Analysis of the 1D Heat Equation**
 
 This module presents a rigorous implementation of a numerical solver for the 1D heat equation, a fundamental PDE in thermal physics:
-$$ \frac{\partial w}{\partial t} = \alpha \frac{\partial^2 w}{\partial x^2} $$
+
+$$
+\frac{\partial w}{\partial t} = \alpha \frac{\partial^2 w}{\partial x^2}
+$$
+
 A key achievement of this work is the direct, visual comparison between a numerical approximation and the exact analytical solution. This dual approach allows for a precise analysis of the numerical method's accuracy and stability under varying discretization parameters.
 
 <details>
@@ -35,10 +39,15 @@ A key achievement of this work is the direct, visual comparison between a numeri
 The numerical solution is achieved through a robust implementation of the **Crank-Nicolson** finite difference scheme. The simulation considers a 1D rod of length $L$ with an initial sinusoidal temperature distribution $w(x,0) = \sin(\frac{\pi x}{L})$ and fixed Dirichlet boundary conditions, $w(0,t) = w(L,t) = 0$.
 
 The discretization of the heat equation using this method is:
-$$ -r w_{i-1}^{n+1} + (1 + 2r)w_i^{n+1} - r w_{i+1}^{n+1} = r w_{i-1}^n + (1 - 2r) w_i^n + r w_{i+1}^n $$
+
+$$
+-r w_{i-1}^{n+1} + (1 + 2r)w_i^{n+1} - r w_{i+1}^{n+1} = r w_{i-1}^n + (1 - 2r) w_i^n + r w_{i+1}^n
+$$
+
 with the stencil coefficient $r = \frac{\alpha \Delta t}{2(\Delta x)^2}$. This implicit method is unconditionally stable for all values of $r$.
 
 The linear system can be expressed in matrix form as $A \mathbf{w}^{n+1} = B \mathbf{w}^n$, where $A$ and $B$ are tridiagonal matrices:
+
 $$
 A = \begin{pmatrix}
 1 & 0 & 0 & \cdots & 0 \\
@@ -59,17 +68,26 @@ $$
 
 #### **Analytical Solution**
 For validation, the exact analytical solution is derived using a **Fourier sine series**. For the given initial and boundary conditions, the solution is:
-$$ w(x,t) = \sin\left(\frac{\pi x}{L}\right) e^{-\alpha \left(\frac{\pi}{L}\right)^2 t} $$
+
+$$
+w(x,t) = \sin\left(\frac{\pi x}{L}\right) e^{-\alpha \left(\frac{\pi}{L}\right)^2 t}
+$$
+
 The program calculates this solution on the same grid, providing a direct benchmark for the numerical result.
 
 </details>
 
-![Heat Equation Plot](Plot/Figure1.png)
+![Heat Equation Plot](./Plot/Figure1.png)
 
 ### **II. Cinematic Visualization of Morphing Turing Patterns**
 
 This work culminates in a cinematic, presentation-ready animation of Turing pattern formation, rendered via the **Manim Community** engine. The visualization showcases the emergent complexity of the **Gray-Scott reaction-diffusion model**:
-$$ \frac{\partial u}{\partial t} = D_u \nabla^2 u - uv^2 + f(1-u) \\ \frac{\partial v}{\partial t} = D_v \nabla^2 v + uv^2 - (f+k)v $$
+
+$$
+\frac{\partial u}{\partial t} = D_u \nabla^2 u - uv^2 + f(1-u) \\
+\frac{\partial v}{\partial t} = D_v \nabla^2 v + uv^2 - (f+k)v
+$$
+
 Here, $\nabla^2$ is the Laplacian operator governing diffusion, $-uv^2$ and $+uv^2$ are the non-linear reaction terms, and $f$ (feed) and $k$ (kill) are the control parameters.
 
 The animation's primary achievement is the demonstration of **pattern morphing**. By smoothly animating the `f` and `k` parameters over time, the system is guided through different regions of its parameter space, causing the visual pattern to dynamically transition between distinct states (e.g., from "Coral" to "Fingerprints"). The governing equations and their real-time parameter values are rendered on-screen, inextricably linking the mathematical abstraction to the evolving artistry of the simulation.
@@ -77,14 +95,22 @@ The animation's primary achievement is the demonstration of **pattern morphing**
 ### **III. Interactive UI for 2D Wave Propagation**
 
 To bridge the gap between static code and dynamic exploration, this repository includes an interactive, web-based laboratory for visualizing the 2D wave equation:
-$$ \frac{\partial^2 u}{\partial t^2} = c^2 \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right) $$
+
+$$
+\frac{\partial^2 u}{\partial t^2} = c^2 \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)
+$$
+
 Built with **Streamlit**, this application provides an intuitive GUI that grants real-time control over the simulation's core parameters. Users can manipulate wave speed, grid resolution, and initial conditions, and then explore the resulting wave propagation through a time-slider and an interactive 3D plot. This transforms the simulation from a single execution into a powerful exploratory tool.
 
 <details>
 <summary><b>Click to expand Mathematical Basis</b></summary>
 
 The visualization is based on the analytical solution to the 2D wave equation on a rectangular membrane with fixed boundaries, derived via separation of variables. The displacement $u(x,y,t)$ is expressed as a double Fourier sine series:
-$$ u(x,y,t) = \sum_{m=1}^{\infty} \sum_{n=1}^{\infty} \sin\left(\frac{m\pi x}{L_x}\right) \sin\left(\frac{n\pi y}{L_y}\right) \left( A_{mn} \cos(\omega_{mn} t) + B_{mn} \sin(\omega_{mn} t) \right) $$
+
+$$
+u(x,y,t) = \sum_{m=1}^{\infty} \sum_{n=1}^{\infty} \sin\left(\frac{m\pi x}{L_x}\right) \sin\left(\frac{n\pi y}{L_y}\right) \left( A_{mn} \cos(\omega_{mn} t) + B_{mn} \sin(\omega_{mn} t) \right)
+$$
+
 where $\omega_{mn} = c\pi \sqrt{\left(\frac{m}{L_x}\right)^2 + \left(\frac{n}{L_y}\right)^2}$ is the angular frequency for each $(m,n)$ mode. The coefficients $A_{mn}$ and $B_{mn}$ are calculated from the initial displacement and velocity of the membrane. The Streamlit app computes a truncated version of this series to generate the 3D surface.
 
 </details>

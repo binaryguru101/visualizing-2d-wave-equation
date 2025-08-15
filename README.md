@@ -7,7 +7,7 @@
 
 This repository presents a curated collection of computational projects that bridge the gap between abstract mathematics and tangible, dynamic visuals. The work herein demonstrates the implementation of advanced numerical methods to solve and visualize complex physical phenomena described by partial differential equations.
 
-![Reaction-Diffusion Animation](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDEzYWo2M2h2eDl0aGlxeng2ejNmOWU4NGNqM3l6cm9teXg2c281byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KRONxvcKhaGjSjpDT1/giphy.gif)
+![Reaction-Diffusion Animation](https://media.giphy.com/media/KRONxvcKhaGjSjpDT1/giphy.gif)
 
 ---
 ## **Table of Contents**

@@ -7,7 +7,7 @@
 
 This repository presents a curated collection of computational projects that bridge the gap between abstract mathematics and tangible, dynamic visuals. The work herein demonstrates the implementation of advanced numerical methods to solve and visualize complex physical phenomena described by partial differential equations. The capstone of this exploration is a cinematic animation of morphing Turing patterns, rendered with the Manim engine, which connects the emergent complexity of a reaction-diffusion system directly to its governing mathematical parameters.
 
-![Reaction-Diffusion Animation](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExazZuc2lsaGk0OXc2dWp1bzhhZ3g1b3RhcHh2OTZsb3Z0ZnZ5NmdmayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l2YWg2L3Z3te5i7yE/giphy.gif)
+![Reaction-Diffusion Animation](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDEzYWo2M2h2eDl0aGlxeng2ejNmOWU4NGNqM3l6cm9teXg2c281byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KRONxvcKhaGjSjpDT1/giphy.gif)
 
 ---
 ## **Table of Contents**
